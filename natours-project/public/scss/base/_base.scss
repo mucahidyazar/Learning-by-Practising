@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  //after ve before pseudo elementlerine de bunlari eklemis oluruz boylelikle
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1 rem is
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box; //Burda yazip * icinde inherit yaparsak boylelikle ileride eger kullanmak istemezsek degistirebiliriz.
+}

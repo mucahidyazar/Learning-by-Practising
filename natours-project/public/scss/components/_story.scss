@@ -9,18 +9,39 @@
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
   &__shape {
     width: 15rem;
     height: 15rem;
     float: left;
-    //Kenarlarini keser ve yaninda yaZi varsa bu kesilmis alanlara kaydirilir. Yani burada daire seklinde bir kesme islemi yaptik
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    //Burada ise kesme islemi sadece goruntu olarak olur. shap-outside da kesme islemi fiziki olarak olur ama goruntude hala gozukmeye devam eder. Bu sekilde yine keserek goruntu olarakda kesilen yerlerin transparent gibi gozukmemesini saglariz
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+
     transform: translateX(-3rem) skewX(12deg); // skewX .story deki skewX i duzeltmek icin
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: (0 0)) {
+      //Kenarlarini keser ve yaninda yaZi varsa bu kesilmis alanlara kaydirilir. Yani burada daire seklinde bir kesme islemi yaptik
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      //Burada ise kesme islemi sadece goruntu olarak olur. shap-outside da kesme islemi fiziki olarak olur ama goruntude hala gozukmeye devam eder. Bu sekilde yine keserek goruntu olarakda kesilen yerlerin transparent gibi gozukmemesini saglariz
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
   }
 
   &__img {
@@ -32,6 +53,10 @@
 
   &__text {
     transform: skewX(12deg); // skewX .story deki skewX i duzeltmek icin
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
   }
 
   &__caption {

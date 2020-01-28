@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Buradaki viewport cihazimizin ekranina gore genisligi ayarliyor. Eger bu olmazsa genislik zoom out olur ve sayfa haddinden fazla kuculur -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -17,8 +18,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/public/css/icon-font.css" />
-    <link rel="stylesheet" href="/public/css/main.css" />
+    <!-- <link rel="stylesheet" href="/public/css/icon-font.css" /> -->
+    <link rel="stylesheet" href="/public/css/style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -92,7 +93,25 @@
 
             <div class="col-1-of-2">
               <div class="composition">
-                <img
+
+                <!--Responsive Image : Resolution Switching-->
+                <!-- 900px-56.25em || 600px-37.5em -->
+                <img srcset="/public/img/nat-1.jpg 300w, /public/img/nat-1-large.jpg 1000w"
+                      sizes="(max-width: 56.25em) 20vw, (max-width:37.5em) 30vw, 300px" 
+                      alt="Photo 1"
+                      src="/public/img/nat-1-large.jpg"
+                      class="composition__photo composition__photo--p1">
+                <img srcset="/public/img/nat-2.jpg 300w, /public/img/nat-2-large.jpg 1000w"
+                      sizes="(max-width: 56.25em) 20vw, (max-width:37.5em) 30vw, 300px" 
+                      alt="Photo 2"
+                      src="/public/img/nat-2-large.jpg"
+                      class="composition__photo composition__photo--p2">
+                <img srcset="/public/img/nat-3.jpg 300w, /public/img/nat-3-large.jpg 1000w"
+                      sizes="(max-width: 56.25em) 20vw, (max-width:37.5em) 30vw, 300px" 
+                      alt="Photo 3"
+                      src="/public/img/nat-3-large.jpg"
+                      class="composition__photo composition__photo--p3">
+                <!-- <img
                   src="/public/img/nat-1-large.jpg"
                   alt="Photo 1"
                   class="composition__photo composition__photo--p1"
@@ -106,7 +125,7 @@
                   src="/public/img/nat-3-large.jpg"
                   alt="Photo 3"
                   class="composition__photo composition__photo--p3"
-                />
+                /> -->
               </div>
             </div>
           </div>
@@ -399,7 +418,14 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="/public/img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+        <!--Responsive Image: Art Direction-->
+        <picture class="footer__logo">
+          <source srcset="/public/img/logo-green-small-1x.png 1x, /public/img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+          
+          <!--Responsive Image: Density Switching-->
+          <img srcset="/public/img/logo-green-1x.png 1x, /public/img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo" src="/public/img/logo-green-1x.png">
+        </picture>
+        
       </div>
       <div class="row">
         <div class="col-1-of-2">
@@ -432,7 +458,7 @@
           <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
           <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
           <p class="popup__text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam duca aperiam impedit laboriosam repellendus asperiores, maiores minima accusantium corporis beatae natus alias nemo, reprehenderit placeat libero corrupti repudiandae voluptate illum? Lorem ipsum dolor sit amet consectetur adipisicing elit. At, accusantium eius consectetur omnis atque ad ab, sequi odit dolore earum officiis magni, ea minima molestiae a iure quae odio. Cumque, odit expedita consequatur, voluptates dolorem corporis nihil quidem accusamus consectetur, eaque culpa? Eligendi quas voluptatem, quos corrupti explicabo animi cum fugit placeat impedit, mollitia eaque ad ab! Dolorum excepturi deserunt nam. Voluptatibus nemo harum commodi eius. Eum commodi quo blanditiis sunt repudiandae veniam perspiciatis repellat fugit, tenetur vitae. Laboriosam voluptatum repudiandae reiciendis, blanditiis obcaecati praesentium officiis libero porro culpa, fuga maxime laudantium ad nemo? Ut obcaecati laboriosam enim molestias ullam!
+            Lorm enim molestias ullitatis doloremque asperiores eaque quas natus? Ex commodi ad reiciendis sed nesciunt, atque voluptatum excepturi quam perspiciatis magni asperiores quis consequuntur totam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro esse soluta minima delectus aut possimus ex et enim numquam. Corrupti deserunt exercitationem ullam explicabo quis excepturi accusantium modi veniam a.
           </p>
           <a href="#" class="btn btn--green">Book now</a>
         </div>
